@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import Toast from "../../components/Toast ";
+import Toast from "../../components/Toast";
 import { useEffect, useState } from "react";
 import useDonate from "../../hooks/useDonate";
 
@@ -42,7 +42,7 @@ const DonationDetails = () => {
   };
 
   return (
-    <div className=" my-10 mb-16">
+    <div className="container mx-auto px-5 sm:px-10 my-10 mb-16">
       <Toast
         status={showToast.status}
         message={showToast.message}
@@ -54,12 +54,14 @@ const DonationDetails = () => {
           alt={title}
           className="w-full h-72 lg:h-[700px] rounded-lg"
         />
-        <button
-          onClick={handleDonate}
-          style={{ backgroundColor: text_btn_bg }}
-          className=" absolute rounded-md cursor-pointer bottom-4 lg:bottom-10 left-5 lg:left-16 px-3 py-2 font-semibold text-white">
-          Donate {price}
-        </button>
+        <div className="absolute bottom-0 bg-[#0B0B0B80] h-24 lg:h-32 w-full left-0 right-0 flex items-center">
+          <button
+            onClick={handleDonate}
+            style={{ backgroundColor: text_btn_bg }}
+            className=" ml-5 sm:ml-10 rounded-md cursor-pointer  px-3 py-2 font-semibold text-white">
+            Donate {price}
+          </button>
+        </div>
       </div>
       <h1 className=" font-bold text-4xl my-4">{title}</h1>
       <p className=" text-base font-normal text-zinc-600">{description}</p>

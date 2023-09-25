@@ -25,7 +25,7 @@ const SingleDonationCard = ({ donate }) => {
           className=" px-2 py-1 font-normal text-xs w-fit rounded-sm ">
           {category}
         </div>
-        <h1 className=" text-xl lg:text-2xl font-bold text-zinc-800 ">
+        <h1 className=" text-lg lg:text-2xl font-bold text-zinc-800 ">
           {title}
         </h1>
         <p style={{ color: text_btn_bg }} className=" font-semibold text-sm">

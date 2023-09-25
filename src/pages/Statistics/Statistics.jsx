@@ -50,7 +50,7 @@ const Statistics = () => {
   ];
 
   return (
-    <>
+    <div className="container mx-auto px-5 sm:px-10">
       <Chart
         chartType="PieChart"
         data={data}
@@ -68,7 +68,7 @@ const Statistics = () => {
           <div className="h-2 w-16 bg-[#FF444A]"></div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

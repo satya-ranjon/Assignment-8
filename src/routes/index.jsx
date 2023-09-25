@@ -2,10 +2,10 @@ import { createBrowserRouter } from "react-router-dom";
 import ErrorPage from "../pages/ErrorPage";
 import AppWrapper from "../layout/AppWrapper";
 import Home from "../pages/home/Home";
-import Donation from "../pages/Donation";
-import DonationDetails from "../pages/DonationDetails";
-import Statistics from "../pages/Statistics";
-import { getDonates } from "../fetch";
+import Donation from "../pages/Donation/Donation";
+import DonationDetails from "../pages/DonationDetails/DonationDetails";
+import Statistics from "../pages/Statistics/Statistics";
+import { getDonate, getDonates } from "../fetch";
 
 const router = createBrowserRouter([
   {
@@ -23,8 +23,9 @@ const router = createBrowserRouter([
         element: <Donation />,
       },
       {
-        path: "/donation/:donationID",
+        path: "/donation-details/:donationID",
         element: <DonationDetails />,
+        loader: ({ params }) => getDonate(params.donationID),
       },
       {
         path: "/statistics",

@@ -4,5 +4,5 @@ export const getDonates = () => {
   return data;
 };
 export const getDonate = (id) => {
-  return data.find((item) => item.id === id);
+  return data?.find((item) => item.id == id);
 };
