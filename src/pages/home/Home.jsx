@@ -5,9 +5,11 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState([]);
+  const [isSearch, setIsSearch] = useState(false);
   const data = useLoaderData();
 
   const handleSearch = () => {
+    setIsSearch(true);
     const searchResult = data.filter((item) =>
       item.category.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -17,6 +19,7 @@ const Home = () => {
   useEffect(() => {
     if (!searchQuery) {
       setSearchResult([]);
+      setIsSearch(false);
     }
   }, [searchQuery]);
 
@@ -33,7 +36,10 @@ const Home = () => {
                 type="text"
                 placeholder="Search here..."
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => {
+                  setIsSearch(false);
+                  return setSearchQuery(e.target.value);
+                }}
                 className="text-lg outline-none p-1 sm:p-2 w-52 sm:w-full border-[1px] border-gray-200 border-r-0 rounded-l-lg placeholder:text-xs"
               />
               <button
@@ -53,8 +59,14 @@ const Home = () => {
             ? searchResult.map((donate) => (
                 <Card key={donate.id} donate={donate} />
               ))
-            : data?.map((donate) => <Card key={donate.id} donate={donate} />)}
+            : !isSearch &&
+              data?.map((donate) => <Card key={donate.id} donate={donate} />)}
         </div>
+        {!(searchResult?.length > 0) && isSearch && (
+          <h1 className=" font-bold text-center text-red-400 text-6xl w-full ">
+            Not Found
+          </h1>
+        )}
       </div>
     </>
   );
