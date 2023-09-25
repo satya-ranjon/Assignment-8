@@ -13,7 +13,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className="container mx-auto px-5 sm:px-10 py-3 sm:py-5">
+    <div className="container mx-auto px-5 sm:px-10 py-3 sm:py-5 ">
       <div className="flex justify-between items-center">
         <div>
           <img
