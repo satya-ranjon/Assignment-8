@@ -6,7 +6,7 @@ const AppWrapper = () => {
   return (
     <>
       {pathname === "/" && (
-        <div className="h-[478px] bg-white opacity-5 w-full">
+        <div className="h-80 sm:h-[478px] bg-white opacity-5 w-full">
           <div className="bg-[url('https://i.ibb.co/CBP7p28/Rectangle-4281.png')] w-full h-full bg-cover"></div>
         </div>
       )}
